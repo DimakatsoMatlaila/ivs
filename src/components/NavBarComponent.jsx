@@ -21,13 +21,14 @@ import {
   AccountCircleOutlined,
 } from "@mui/icons-material";
 import { useState } from "react";
+import MuuttuaLogo from "../assets/Muuttua.svg"; // Import the SVG logo
 
 export default function NavBarComponent() {
   const [notificationAnchorEl, setNotificationAnchorEl] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
-  // handleNotificationClicked
   const open = Boolean(anchorEl);
   const notificationOpen = Boolean(notificationAnchorEl);
+
   const handleAvatarClicked = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -55,21 +56,37 @@ export default function NavBarComponent() {
                   alignItems: "center",
                 }}
               >
-                <Typography
-                  variant="h6"
-                  component="a"
-                  href="/"
+                <Box
                   sx={{
+                    display: "flex",
+                    alignItems: "center",
                     mx: 2,
-                    display: { xs: "none", md: "flex" },
-                    fontWeight: 700,
-                    letterSpacing: ".2rem",
-                    color: "inherit",
-                    textDecoration: "none",
                   }}
                 >
-                  PMS-System
-                </Typography>
+                  <img
+                    src={MuuttuaLogo}
+                    alt="Muuttua Logo"
+                    style={{
+                      width: "40px", // Adjust the size as needed
+                      height: "40px",
+                      marginRight: "8px", // Spacing between logo and text
+                    }}
+                  />
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    href="/"
+                    sx={{
+                      display: { xs: "none", md: "flex" },
+                      fontWeight: 700,
+                      letterSpacing: ".2rem",
+                      color: "inherit",
+                      textDecoration: "none",
+                    }}
+                  >
+                    PMS-System
+                  </Typography>
+                </Box>
 
                 <Box
                   sx={{
@@ -144,33 +161,4 @@ export default function NavBarComponent() {
       </Grid>
     </Grid>
   );
-}
-
-{
-  /* <Grid item md={7}>
-                  <Paper
-                    component="form"
-                    sx={{
-                      p: "2px 4px",
-                      width: "50%",
-                      mx: "auto",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <InputBase
-                      sx={{ ml: 1, flex: 1 }}
-                      placeholder="Search "
-                      inputProps={{ "aria-label": "search" }}
-                    />
-                    <IconButton
-                      type="button"
-                      sx={{ p: "10px" }}
-                      aria-label="search"
-                    >
-                      <Search />
-                    </IconButton>
-                  </Paper>
-                </Grid> */
 }
